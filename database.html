@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opportunities</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .tag {
+            display: inline-block;
+            background-color: #e2e8f0; /* bg-gray-300 */
+            color: #1a202c; /* text-gray-800 */
+            padding: 0.25rem 0.5rem;
+            border-radius: 9999px;
+            font-size: 0.875rem; /* text-sm */
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .tag-highlight {
+            display: inline-block;
+            background-color: #f87171; /* bg-red-400 */
+            color: #fff; /* text-white */
+            padding: 0.25rem 0.5rem;
+            border-radius: 9999px;
+            font-size: 0.875rem; /* text-sm */
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .tag.active, .tag-highlight.active {
+            background-color: #3182ce; /* bg-blue-600 */
+            color: #fff; /* text-white */
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const filters = document.querySelectorAll('.tag, .tag-highlight');
+            filters.forEach(filter => {
+                filter.addEventListener('click', () => {
+                    filter.classList.toggle('active');
+                    const activeFilters = document.querySelectorAll('.tag.active, .tag-highlight.active');
+                    const activeTexts = Array.from(activeFilters).map(f => f.textContent.trim().toLowerCase());
+                    const opportunities = document.querySelectorAll('.opportunity');
+                    opportunities.forEach(opportunity => {
+                        const opportunityText = opportunity.textContent.toLowerCase();
+                        if (activeTexts.every(filter => opportunityText.includes(filter))) {
+                            opportunity.style.display = 'block';
+                        } else {
+                            opportunity.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</head>
+<body class="bg-gray-100 p-10">
+    <div class="grid grid-cols-4 gap-10">
+        <div class="bg-purple-800 p-6 rounded-lg">
+            <h2 class="text-white text-lg mb-4">Target audience</h2>
+            <div class="space-x-2 space-y-2">
+                <span class="tag">Girls</span>
+                <span class="tag">Black</span>
+                <span class="tag">LGBT</span>
+                <span class="tag bg-purple-600 text-white">Indigenous</span>
+                <span class="tag">Low-income</span>
+                <span class="tag">Disability</span>
+                <span class="tag">Rural</span>
+            </div>
+        </div>
+        <div class="bg-orange-500 p-6 rounded-lg">
+            <h2 class="text-white text-lg mb-4">Interests</h2>
+            <div class="space-x-2 space-y-2">
+                <span class="tag">Tech</span>
+                <span class="tag">Environment</span>
+                <span class="tag-highlight">STEM</span>
+                <span class="tag">Writing</span>
+                <span class="tag">Humanities</span>
+                <span class="tag">Arts</span>
+                <span class="tag">Languages</span>
+            </div>
+        </div>
+        <div class="bg-indigo-800 p-6 rounded-lg">
+            <h2 class="text-white text-lg mb-4">Opportunities</h2>
+            <div class="space-x-2 space-y-2">
+                <span class="tag">Education</span>
+                <span class="tag bg-indigo-600 text-white">Exchange</span>
+                <span class="tag">Internship</span>
+                <span class="tag">Olympiad</span>
+                <span class="tag">Competitions</span>
+                <span class="tag">Research</span>
+                <span class="tag">Volunteering</span>
+                <span class="tag">Advocacy</span>
+            </div>
+        </div>
+        <div class="bg-red-400 p-6 rounded-lg">
+            <h2 class="text-white text-lg mb-4">Cost</h2>
+            <div class="space-x-2 space-y-2">
+                <span class="tag-highlight">Fully-funded</span>
+                <span class="tag">Free</span>
+                <span class="tag">Scholarships</span>
+            </div>
+            <h2 class="text-white text-lg mb-4 mt-6">Location</h2>
+            <div class="space-x-2 space-y-2">
+                <span class="tag">National</span>
+                <span class="tag">On-site</span>
+                <span class="tag">International</span>
+                <span class="tag">Urban</span>
+                <span class="tag-highlight">Online</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-10">
+        <h2 class="text-2xl font-bold mb-6">Opportunities</h2>
+        <div class="grid grid-cols-4 gap-6">
+            <div class="bg-white p-6 rounded-lg shadow-md opportunity">
+                <h3 class="text-xl font-semibold mb-2">Youth Ambassadors</h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="tag">Low-income</span>
+                    <span class="tag-highlight">Fully-funded</span>
+                    <span class="tag">Leadership</span>
+                    <span class="tag">International</span>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md opportunity">
+                <h3 class="text-xl font-semibold mb-2">Tilting Futures at Capetown</h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="tag">Low-income</span>
+                    <span class="tag-highlight">Fully-funded</span>
+                    <span class="tag">Leadership</span>
+                    <span class="tag">International</span>
+                    <span class="tag bg-indigo-600 text-white">Exchange</span>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md opportunity">
+                <h3 class="text-xl font-semibold mb-2">Sakura Program</h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="tag">Low-income</span>
+                    <span class="tag-highlight">Fully-funded</span>
+                    <span class="tag-highlight">STEM</span>
+                    <span class="tag">International</span>
+                    <span class="tag bg-indigo-600 text-white">Exchange</span>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md opportunity">
+                <h3 class="text-xl font-semibold mb-2">AFS Global STEM Academies</h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="tag">Low-income</span>
+                    <span class="tag-highlight">Fully-funded</span>
+                    <span class="tag-highlight">STEM</span>
+                    <span class="tag">International</span>
+                    <span class="tag bg-indigo-600 text-white">Exchange</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
